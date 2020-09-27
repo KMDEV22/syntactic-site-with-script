@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+
+        body {
+            font-size: 35px;
+        }
+
+        header {
+            font-size: 1.25em;
+            text-transform: capitalize;
+
+        }
+
+        main {
+            padding: 50px;
+            font-size: 1em;
+        }
+
+        span.menu {
+            text-transform: capitalize;
+            font-size: .8em;
+            border: 1px solid;
+            padding: 0 10px;
+            cursor: pointer;
+            user-select: none;
+
+        }
+
+        #cartoons {
+            text-transform: uppercase;
+        }
+
+        [cartoons] {
+            border: 3px dotted;
+        }
+
+        span {
+            border: 3px dashed;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <span class="menu">national</span>
+            <span class="menu">international</span>
+            <span class="menu">editorial</span>
+            <span class="menu">science</span>
+            <span id="cartoons">cartoons</span>
+            <span class="menu">sports</span>
+
+        </nav>
+    </header>
+    this is the content.
+    <main>
+        <article>
+            <header>header of the news article</header>
+            <section>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, exercitationem? Aspernatur error
+                repellendus cum magnam labore id voluptates, ratione qui. Impedit alias a ut minus, velit dolores saepe.
+                Dolorem, odio?</section>
+            <figure>
+                <img src="./images/newz.jpg" alt="">
+                <caption>
+                    reporter giving news
+                </caption>
+            </figure>
+        </article>
+    </main>
+    <footer>
+        this is footer
+    </footer>
+    <script>
+        myFunction('this is another message');
+        function myFunction(message) {
+            debugger
+            alert('massage' + message)
+            console.log(message)
+            console.warn(message)
+            console.info(message)
+            console.error(message)
+
+        }
+    </script>
+
+
+</body>
+
+</html>
