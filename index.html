@@ -35,59 +35,114 @@
 
         }
 
-        #cartoons {
-            text-transform: uppercase;
-        }
-
-        [cartoons] {
-            border: 3px dotted;
-        }
-
         span {
             border: 3px dashed;
+            display: inline-block;
+            background: red;
+
         }
+
+        span:hover {
+            background-color: maroon;
+            color: white;
+        }
+
+        header {
+            font-family: Arial, Helvetica, sans-serif;
+
+        }
+        figure caption{
+            display: inlineblock;
+        }
+
     </style>
+
 </head>
 
 <body>
     <header>
         <nav>
-            <span class="menu">national</span>
-            <span class="menu">international</span>
-            <span class="menu">editorial</span>
-            <span class="menu">science</span>
-            <span id="cartoons">cartoons</span>
-            <span class="menu">sports</span>
+            <span class="menu" onClick="changeTopic(event)">National</span>
+            <span class="menu" onClick="changeTopic(event)">international</span>
+            <span class="menu" onClick="changeTopic(event)">science</span>
+            <span class="menu" onClick="changeTopic(event)">cartoons</span>
 
         </nav>
     </header>
-    this is the content.
+    Breaking News!
     <main>
         <article>
-            <header>header of the news article</header>
-            <section>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Et, exercitationem? Aspernatur error
-                repellendus cum magnam labore id voluptates, ratione qui. Impedit alias a ut minus, velit dolores saepe.
-                Dolorem, odio?</section>
+            <header>Corona is Dangerous</header>
+            <section>Corona virus is a very harmful virus. the common symtopms are could caugh and fever.It is a world
+                pandamic due to which schools offices and stores etc are closed.government has given strict lock
+                down.its almost 5 to 6 months since lockdown has started. </section>
             <figure>
-                <img src="./images/newz.jpg" alt="">
-                <caption>
-                    reporter giving news
-                </caption>
+                <img src="./images/covid.jpg" alt="">
+                <div>
+                    Stay home stay safe :D
+                </div>
             </figure>
         </article>
     </main>
+
     <footer>
-        this is footer
+        Thank YOU
     </footer>
     <script>
-        myFunction('this is another message');
-        function myFunction(message) {
-            debugger
-            alert('massage' + message)
-            console.log(message)
-            console.warn(message)
-            console.info(message)
-            console.error(message)
+        var hello = 'hi'
+        function changeTopic(event) {
+            console.log(event)
+            var topic = event.target.outerText;
+            var header = document.querySelectorAll("header")[1]
+            var newsContent = document.querySelector("section")
+            var imgvar = document.querySelector("img")
+
+            var newsItems = [
+                {
+                    header: "National",
+                    content: 'Nine people, including three women, were arrested by the Assam police for lynching two persons including a woman on suspicion of "witch-craft", police said on Friday.\
+ Superintendent of Police Debojit Deuri said that two persons, including a woman, were hacked to death, beheaded and set afire by a mob over suspicion of practising witch-craft (black magic) in Central Assam\'s Karbi Anglong district.\
+"On suspicion of witch-craft a mob lynched Ramawati Halua, 50 and Bijoy Gour, 45, following the death of a teenage girl in Rohimapur village under Dokmoka police station area earlier this week," the district police chief told the media.',
+                    imgPath: "./images/national.jpg",
+                    caption: "Section 144 CrPc imposed in Thiruvananthapuram till Oct 31 due to rising COVID19 cases",
+                },
+                {
+                    header: "International",
+                    content: "PARIS (AP) — News that the world’s most powerful man was infected with the world’s most notorious disease dominated screens large and small, drawing shock, sympathy and some barbs for President...",
+                    imgPath: "./images/international.jpg",
+                    caption: "Trump COVID infection thrusts world in uncharted territory",
+                },
+                {
+                    header: "Cartoons",
+                    content: "ydgsdihwoshdcydguasiadcsibsdhnwuidbyfvksidgsfveedkfvsdg",
+                    imgPath: "./images/cartoon.jpg",
+                    caption: "welcome to caption",
+                },
+                {
+                    header: "Science",
+                    content: "When the first-ever image of a black hole was released in April 2019, it marked a powerful confirmation of Albert Einstein’s theory of gravity, or general relativity.The theory not only describes the way matter warps spacetime, but it also predicts the very existence of black holes, including the size of the shadow cast by a black hole on the bright disk of material that swirls around some of the dense objects. That iconic image, of the supermassive black hole at the center of the galaxy M87 about 55 million light-years away, showed that the shadow closely matched general relativity’s predictions of its size (SN: 4/10/19). In other words, Einstein was right — again.",
+                    imgPath: "./images/science.jpg",
+                    caption: "The first black hole image helped test general relativity in a new way",
+                },
+            ]
+            let dataForPage;
+            if (topic == "National") {
+                dataForPage =  newsItems[0]
+            }
+            if (topic == "International") {
+                dataForPage =  newsItems[1]
+            }
+            if (topic == "Cartoons") {
+                dataForPage =  newsItems[2]
+            }
+            if (topic == "Science") {
+                dataForPage =  newsItems[3]
+            }
+            // debugger
+            newsContent.innerHTML = dataForPage.content
+            header.innerHTML = dataForPage.header
+            imgvar.src = dataForPage.imgPath
+            console.log(header[1])
 
         }
     </script>
